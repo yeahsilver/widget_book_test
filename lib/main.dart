@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 void main() {
   runApp(const MyApp());
@@ -30,28 +29,33 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: MainContainer(),
+      body: MainContainer(
+        color: Colors.red,
+      ),
     );
   }
 }
 
 class MainContainer extends StatelessWidget {
-  const MainContainer({super.key});
+  const MainContainer({Key? key, required this.color}) : super(key: key);
+
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
-    @widgetbook.UseCase(
-      name: "width green color",
-      type: Container,
-    )
-    Widget getContainer(BuildContext context) {
-      return Container(
-        width: 100,
-        height: 100,
-        color: Colors.green,
-      );
-    }
+    return Container(width: 100, height: 100, color: color);
+  }
+}
 
-    return getContainer(context);
+class MainTitle extends StatelessWidget {
+  const MainTitle({Key? key, required this.text}) : super(key: key);
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(text),
+    );
   }
 }

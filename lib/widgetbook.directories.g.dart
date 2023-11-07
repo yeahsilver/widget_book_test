@@ -22,7 +22,11 @@ final directories = <_i1.WidgetbookNode>[
           _i1.WidgetbookUseCase(
             name: 'width green color',
             builder: _i2.greenContainerUseCase,
-          )
+          ),
+          _i1.WidgetbookUseCase(
+            name: 'with blue color',
+            builder: _i2.getContainer,
+          ),
         ],
       )
     ],
